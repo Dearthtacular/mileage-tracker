@@ -9,7 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
-
+const vehicleRoutes = require('./routes/vehicles');
 
 // create the Express app
 const app = express();
@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // mount the session middleware
 app.use(session({
-  secret: process.env.SECRET,
+  secret: process.env.GOOGLE_SECRET,
   resave: false,
   saveUninitialized: true
 }));
@@ -51,6 +51,7 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+app.use('/vehicles', vehicleRoutes);
 
 
 // invalid request, send 404 page
