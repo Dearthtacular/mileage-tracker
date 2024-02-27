@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+	<section id="show-page">
+		<div>Year: </div>
+		<div>
+			<%= vehicle.year %>
+		</div>
+		<div>Make: </div>
+		<div>
+			<%= vehicle.make %>
+		</div>
+		<div>Model: </div>
+		<div>
+			<%= vehicle.model %>
+		</div>
+
+		<h2>Average MPG</h2>
+			<%= mpg %>
+        
+        <h2>Mileage Log</h2>
+        <form id="add-mileage-and-fuel-form" method="POST" action="/vehicles/<%= vehicle._id %>/tripfuels">
+			<label>Starting Mileage:</label><br>
+			<input type="number" name="tripStart"><br>
+			<label>Ending Mileage:</label><br>
+			<input type="number" name="tripEnd"></textarea><br>
+			<label>Fuel Added (in gallons):</label><br>
+			<input type="number" name="fuelInfo"></textarea><br>
+			<input type="submit" value="Log Trip and Fuel Data">
+		</form>
+		<% vehicle.tripfuel.forEach(trip => { %>
+			<div>
+				<%= trip.tripStart %>
+			</div>
+			<div>
+				<%= trip.tripEnd %>
+			</div>
+			<div>
+				<%= trip.fuelInfo %>
+			</div>
+		<% }) %>
+
+
+	</section>
+<%- include('../partials/footer') %>

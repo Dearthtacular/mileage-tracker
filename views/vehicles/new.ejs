@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+		<h2>Enter a New Vehicle</h2>
+		<form action="/vehicles" method="POST">
+			<label>Year:
+				<input type="number" name="year">
+			</label><br>
+			<label>Make:
+				<input type="text" name="make">
+			</label><br>
+            <label>Model:
+				<input type="text" name="model">
+			<button type="submit">Add Vehicle</button>
+		</form>

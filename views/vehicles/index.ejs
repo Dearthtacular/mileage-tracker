@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vehicles</title>
+  </head>
+  <!-- <body>
+    Vehicles Index
+  </body> -->
+
+	<table id="list">
+		<thead>
+		  <tr>
+			<th>Yeah</th>
+			<th>Make</th>
+			<th>Model</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <% vehicleDocs.forEach(function(v) { %>
+			<tr>
+			  <td><%= v.year %></td>
+			  <td><%= v.make %></td>
+              <td><%= v.model %></td>
+              <td><a href="/vehicles/<%= v._id %>">SELECT</a></td>
+			</tr>
+			<% }); %>
+		  </tbody>
+		
+		</table>
+		
+<%- include('../partials/footer') %>
+</html>
