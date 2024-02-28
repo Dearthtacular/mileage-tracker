@@ -1,5 +1,5 @@
 const VehicleModel = require('../models/vehicle')
-const TripFuelModel = require('../models/tripfuel');
+const YMMModel = require('../models/yearsmakesmodels')
 
 module.exports = {
     new: newVehicle,
@@ -12,15 +12,19 @@ async function show(req, res) {
     try {
         const vehicleFromTheDatabase = await VehicleModel.findById(req.params.id).populate('tripfuel')
         console.log(vehicleFromTheDatabase);
-        const totalFuel = vehicleFromTheDatabase.tripfuel.reduce(function(acc, tf){
+        const totalFuel = vehicleFromTheDatabase.tripfuel.reduce(function (acc, tf) {
             acc += tf.fuelInfo
             return acc
-        },0)
+        }, 0)
         const tfArrLength = vehicleFromTheDatabase.tripfuel.length
-        const startTf = vehicleFromTheDatabase.tripfuel[0].tripStart
-        const endTf = vehicleFromTheDatabase.tripfuel[tfArrLength - 1].tripEnd
-        const totalMiles = endTf - startTf
-        const avgMpg = totalMiles/totalFuel
+        let avgMpg = 0;
+        if (tfArrLength > 0) {
+            const startTf = vehicleFromTheDatabase.tripfuel[0].tripStart
+            const endTf = vehicleFromTheDatabase.tripfuel[tfArrLength - 1].tripEnd
+            const totalMiles = endTf - startTf
+            avgMpg = totalMiles / totalFuel
+        }
+
         res.render("vehicles/show", {
             vehicle: vehicleFromTheDatabase,
             mpg: avgMpg
@@ -44,15 +48,28 @@ async function index(req, res) {
 
 async function create(req, res) {
     try {
-        const vehicleFromTheDatabase = await VehicleModel.create(req.body);
+        const YMM = req.body.vehicle.split(',')
+        const objectToBePutInTheDB = {year: YMM[0], make: YMM[1], model: YMM[2], user: req.user._id}
+        const vehicleFromTheDatabase = await VehicleModel.create(objectToBePutInTheDB);
+        console.log(req.body, 'THIS IS REQ.BODY');
         console.log(vehicleFromTheDatabase);
         res.redirect(`/vehicles/${vehicleFromTheDatabase._id}`);
     } catch (err) {
         console.log(err);
-        res.render("vehicles/new", { errorMsg: err.message });
+        res.redirect('/vehicles/new');
     }
 }
 
-function newVehicle(req, res) {
-    res.render('vehicles/new')
+// function newVehicle(req, res) {
+//     res.render('vehicles/new')
+// }
+
+async function newVehicle(req, res) {
+    try {
+        const YMMDocumentsFromTheDB = await YMMModel.find({})
+        res.render('vehicles/new', { YMMDocs: YMMDocumentsFromTheDB })
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
 }

@@ -1,13 +1,20 @@
 <%- include('../partials/header') %>
 		<h2>Enter a New Vehicle</h2>
 		<form action="/vehicles" method="POST">
-			<label>Year:
+			<!-- <label>Year:
 				<input type="number" name="year">
 			</label><br>
 			<label>Make:
 				<input type="text" name="make">
 			</label><br>
             <label>Model:
-				<input type="text" name="model">
+				<input type="text" name="model"> -->
+			<label>Vehicle:
+				<select name="vehicle" id="">
+					<% YMMDocs.forEach(element => { %>
+					 <option value="<%= element.year %>, <%= element.make %> , <%= element.model %>"><%= element.year %>, <%= element.make %> , <%= element.model %></option>
+					<% }) %>
+				</select>
+			</label>
 			<button type="submit">Add Vehicle</button>
 		</form>
