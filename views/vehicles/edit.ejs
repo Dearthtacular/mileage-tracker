@@ -1,0 +1,59 @@
+<%- include('../partials/header') %>
+    <table>
+        <thead>
+            <tr>
+                <th>Original<br>Starting<br>Odometer</th>
+                <th>Original<br>Ending<br>Odometer</th>
+                <th>Original<br>Fuel<br>Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <%= trip.tripStart %>
+                </td>
+                <td>
+                    <%= trip.tripEnd %>
+                </td>
+                <td>
+                    <%= trip.fuelInfo %>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Edited<br>Starting<br>Odometer</th>
+                <th>Edited<br>Ending<br>Odometer</th>
+                <th>Edited<br>Fuel<br>Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form action="/tripfuels/<%= trip._id %>?_method=PUT" method="POST">
+                        <input type="number" name="tripStart" value="<%= trip.tripStart %>">
+                        <br>
+                <td>
+                    <input type="number" name="tripEnd" value="<%= trip.tripEnd %>">
+                </td>
+                <br>
+                <td>
+                    <input type="number" name="fuelInfo" value="<%= trip.fuelInfo %>">
+                </td>
+                <br>
+            <tr>
+                <td>
+                    <button type="submit">Edit Trip Info</button>
+                </td>
+            </tr>
+            </form>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    <%- include('../partials/footer') %>

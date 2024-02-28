@@ -6,7 +6,9 @@ const isLoggedIn = require('../config/auth')
 // router.get('/', tripFuelCtrl.index)
 // router.get('/new', tripFuelCtrl.new)
 // router.get('/:id', tripFuelCtrl.show)
-router.delete('/:tripFuelsId', tripFuelCtrl.delete)
-
+router.delete('/tripfuels/:tripFuelsId', tripFuelCtrl.delete)
+router.get('/tripfuels/:tripFuelsId', tripFuelCtrl.edit)
+router.post('/vehicles/:id/tripfuels', tripFuelCtrl.addTripFuels)
+router.put('/tripfuels/:tripFuelsId', tripFuelCtrl.update)
 
 module.exports = router;

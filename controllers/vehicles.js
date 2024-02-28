@@ -5,7 +5,18 @@ module.exports = {
     new: newVehicle,
     create,
     index,
-    show
+    show,
+    delete: deleteOne
+}
+
+async function deleteOne(req, res){
+	try {
+		const vehicleDoc = await VehicleModel.findByIdAndDelete(req.params.vehicleId)
+		res.redirect('/vehicles')
+	} catch(err) {
+		console.log(err)
+		res.send(err)
+	}
 }
 
 async function show(req, res) {
@@ -51,8 +62,8 @@ async function create(req, res) {
         const YMM = req.body.vehicle.split(',')
         const objectToBePutInTheDB = {year: YMM[0], make: YMM[1], model: YMM[2], user: req.user._id}
         const vehicleFromTheDatabase = await VehicleModel.create(objectToBePutInTheDB);
-        console.log(req.body, 'THIS IS REQ.BODY');
-        console.log(vehicleFromTheDatabase);
+        // console.log(req.body, 'THIS IS REQ.BODY');
+        // console.log(vehicleFromTheDatabase);
         res.redirect(`/vehicles/${vehicleFromTheDatabase._id}`);
     } catch (err) {
         console.log(err);

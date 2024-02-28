@@ -36,6 +36,7 @@
 					<th>Ending<br>Odometer</th>
 					<th>Fuel<br>Added</th>
 					<th>Delete<br>Line</th>
+					<th>Edit<br>Line</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -52,14 +53,14 @@
 						</td>
 						<td>
 							<form action="/tripfuels/<%= trip._id %>?_method=DELETE" method="POST">
-								<button type="submit">X</button>
+								<button type="submit">DELETE</button>
 							</form>
+						</td>
+						<td>
+							<td><a href="/tripfuels/<%= trip._id %>">EDIT</a></td>
 						</td>
 					</tr>
 					<% }); %>
 						<% } %>
 
-
-
-
-							<%- include('../partials/footer') %>
+<%- include('../partials/footer') %>
