@@ -23,6 +23,7 @@
 			  <td><%= v.make %></td>
               <td><%= v.model %></td>
               <td><a href="/vehicles/<%= v._id %>">SELECT</a></td>
+			  <td><a href="/vehicles/<%= v._id %>?_method=DELETE" method="POST">DELETE</a></td>
 			</tr>
 			<% }); %>
 		  </tbody>
