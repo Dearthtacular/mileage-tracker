@@ -10,6 +10,4 @@ router.get('/:id', vehicleCtrl.show);
 router.post('/', vehicleCtrl.create)
 router.delete('/:vehicleId', vehicleCtrl.delete)
 
-
-
 module.exports = router;

@@ -1,18 +1,29 @@
 <%- include('../partials/header') %>
 	<section id="show-page">
-		<div>Year: </div>
-		<div>
-			<%= vehicle.year %>
-		</div>
-		<div>Make: </div>
-		<div>
-			<%= vehicle.make %>
-		</div>
-		<div>Model: </div>
-		<div>
-			<%= vehicle.model %>
-		</div>
-
+		<section class="container text-center">
+			<section class="row">
+			<div class="col">
+				<div>Year: </div>
+				<div>
+					<%= vehicle.year %>
+				</div>
+			</div>
+		
+			<div class="col">
+				<div>Make: </div>
+				<div>
+					<%= vehicle.make %>
+				</div>
+			</div>
+			<div class="col">
+				<div>Model: </div>
+				<div>
+					<%= vehicle.model %>
+				</div>
+			</div>
+		</section>
+		</section>
+		</section>
 		<h2>Average MPG</h2>
 		<%= mpg %>
 
@@ -57,10 +68,10 @@
 							</form>
 						</td>
 						<td>
-							<td><a href="/tripfuels/<%= trip._id %>">EDIT</a></td>
+						<td><a href="/tripfuels/<%= trip._id %>">EDIT</a></td>
 						</td>
 					</tr>
 					<% }); %>
 						<% } %>
 
-<%- include('../partials/footer') %>
+							<%- include('../partials/footer') %>
