@@ -48,7 +48,7 @@ async function show(req, res) {
 
 async function index(req, res) {
     try {
-        const vehicleDocumentsFromTheDB = await VehicleModel.find({})
+        const vehicleDocumentsFromTheDB = await VehicleModel.find({user: req.user._id})
         console.log(vehicleDocumentsFromTheDB)
         res.render('vehicles/index', { vehicleDocs: vehicleDocumentsFromTheDB })
     } catch (err) {
