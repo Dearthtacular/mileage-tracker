@@ -6,12 +6,12 @@ const tripFuelSchema = new Schema({
     tripStart:
     {
         type: Number,
-        required: true
+
     },
     tripEnd:
     {
         type: Number,
-        required: true
+
     },
     fuelInfo: Number
 }, {

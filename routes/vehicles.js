@@ -4,10 +4,10 @@ const vehicleCtrl = require('../controllers/vehicles')
 const tripFuelCtrl = require('../controllers/tripfuels')
 const isLoggedIn = require('../config/auth')
 
-router.get('/', vehicleCtrl.index)
-router.get('/new', vehicleCtrl.new)
-router.get('/:id', vehicleCtrl.show);
-router.post('/', vehicleCtrl.create)
-router.delete('/:vehicleId', vehicleCtrl.delete)
+router.get('/', isLoggedIn, vehicleCtrl.index)
+router.get('/new', isLoggedIn, vehicleCtrl.new)
+router.get('/:id', isLoggedIn, vehicleCtrl.show);
+router.post('/', isLoggedIn, vehicleCtrl.create)
+router.delete('/:vehicleId', isLoggedIn, vehicleCtrl.delete)
 
 module.exports = router;

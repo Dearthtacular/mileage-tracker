@@ -6,17 +6,18 @@
 		<title>Vehicles</title>
 	</head>
 
-	<table id="list" class="container text-center" style="color: whitesmoke">
+	<table id="list" class="container text-center" style="color: whitesmoke; margin-top: 0.5rem;">
 		<thead>
 			<tr>
-				<th>Year</th>
-				<th>Make</th>
-				<th>Model</th>
+				<th style="border-bottom: 3px solid whitesmoke">Year</th>
+				<th style="border-bottom: 3px solid whitesmoke">Make</th>
+				<th style="border-bottom: 3px solid whitesmoke">Model</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% vehicleDocs.forEach(function(v) { %>
 				<tr>
+					
 					<td style="border-bottom: 1px solid whitesmoke">
 						<%= v.year %>
 					</td>

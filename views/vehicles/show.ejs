@@ -1,77 +1,90 @@
 <%- include('../partials/header') %>
 	<section id="show-page">
-		<section class="container text-center">
-			<section class="row">
-			<div class="col">
-				<div>Year: </div>
-				<div>
-					<%= vehicle.year %>
+		<section class="container text-center" style="color: whitesmoke; margin-top: 0.5rem;">
+			<section class="row" style="border-bottom: 3px solid whitesmoke">
+				<div class="col">
+					<div>Year: </div>
+					<div>
+						<%= vehicle.year %>
+					</div>
 				</div>
-			</div>
-		
-			<div class="col">
-				<div>Make: </div>
-				<div>
-					<%= vehicle.make %>
+				<div class="col">
+					<div>Make: </div>
+					<div>
+						<%= vehicle.make %>
+					</div>
 				</div>
-			</div>
-			<div class="col">
-				<div>Model: </div>
-				<div>
-					<%= vehicle.model %>
+				<div class="col">
+					<div>Model: </div>
+					<div>
+						<%= vehicle.model %>
+					</div>
 				</div>
-			</div>
+			</section>
 		</section>
-		</section>
-		</section>
-		<h2>Average MPG</h2>
-		<%= mpg %>
+	</section>
 
-			<h2>Mileage Log</h2>
-			<form id="add-mileage-and-fuel-form" method="POST" action="/vehicles/<%= vehicle._id %>/tripfuels">
-				<label>Starting Mileage:</label><br>
-				<input type="number" name="tripStart"><br>
-				<label>Ending Mileage:</label><br>
-				<input type="number" name="tripEnd"></textarea><br>
-				<label>Fuel Added (in gallons):</label><br>
-				<input type="number" name="fuelInfo"></textarea><br>
-				<input type="submit" value="Log Trip and Fuel Data">
-			</form>
+	<section class="container text-center" style="color: whitesmoke; margin-top: 2rem;">
+
+			<section class="row align-items-center">
+				<div class="col align-items-center">
+					<div class="container text-center" style="border: 3px solid whitesmoke; border-radius: 15px; color: gray; background-color: whitesmoke;">
+						<h2>Average MPG:</h2>
+						<h3>
+							<%= mpg %>
+						</h3>
+					</div>
+				</div>
+
+
+				<div class="col">
+					<h2>Mileage Log</h2>
+					<form id="add-mileage-and-fuel-form" method="POST" action="/vehicles/<%= vehicle._id %>/tripfuels">
+						<label>Starting Mileage:</label><br>
+						<input type="number" name="tripStart"><br>
+						<label>Ending Mileage:</label><br>
+						<input type="number" name="tripEnd"></textarea><br>
+						<label>Fuel Added (in gallons):</label><br>
+						<input type="number" name="fuelInfo"></textarea><br>
+						<input type="submit" class="btn btn-info" style="border: 1px solid black; margin-top: .5rem;" value="Log Trip and Fuel Data">
+					</form>
+				</div>
+			</section>
+
 	</section>
 
 	<% if (vehicle.tripfuel.length) { %>
-		<table>
+		<table class="container text-center" style="color: whitesmoke; margin-top: 0.5rem;">
 			<thead>
 				<tr>
-					<th>Starting<br>Odometer</th>
-					<th>Ending<br>Odometer</th>
-					<th>Fuel<br>Added</th>
-					<th>Delete<br>Line</th>
-					<th>Edit<br>Line</th>
+					<th style="border-bottom: 3px solid whitesmoke">Starting<br>Odometer</th>
+					<th style="border-bottom: 3px solid whitesmoke">Ending<br>Odometer</th>
+					<th style="border-bottom: 3px solid whitesmoke">Fuel<br>Added<br>(gallons)</th>
+
 				</tr>
 			</thead>
 			<tbody>
 				<% vehicle.tripfuel.forEach(trip=> { %>
 					<tr>
-						<td>
+						<td style="border-bottom: 1px solid whitesmoke">
 							<%= trip.tripStart %>
 						</td>
-						<td>
+						<td style="border-bottom: 1px solid whitesmoke">
 							<%= trip.tripEnd %>
 						</td>
-						<td>
+						<td style="border-bottom: 1px solid whitesmoke">
 							<%= trip.fuelInfo %>
+						</td>
+						<td><a href="/tripfuels/<%= trip._id %>">
+								<button type="button" class="btn btn-primary">EDIT</button>
+							</a>
 						</td>
 						<td>
 							<form action="/tripfuels/<%= trip._id %>?_method=DELETE" method="POST">
-								<button type="submit">DELETE</button>
+								<button type="submit" class="btn btn-danger">DELETE</button>
 							</form>
-						</td>
-						<td>
-						<td><a href="/tripfuels/<%= trip._id %>">EDIT</a></td>
 						</td>
 					</tr>
 					<% }); %>
 						<% } %>
-
 							<%- include('../partials/footer') %>

@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
-    <table>
+    <table class="container text-center" style="color: whitesmoke; margin-top: 0.5rem;">
         <thead>
             <tr>
-                <th>Original<br>Starting<br>Odometer</th>
-                <th>Original<br>Ending<br>Odometer</th>
-                <th>Original<br>Fuel<br>Added</th>
+                <th style="border-bottom: 3px solid whitesmoke">Original Starting Odometer</th>
+                <th style="border-bottom: 3px solid whitesmoke">Original Ending Odometer</th>
+                <th style="border-bottom: 3px solid whitesmoke">Original Fuel Added</th>
             </tr>
         </thead>
         <tbody>
@@ -22,33 +22,32 @@
             </tr>
         </tbody>
     </table>
-    <br>
-    <br>
-    <table>
+    <table class="container text-center" style="color: whitesmoke; margin-top: 0.5rem;">
         <thead>
             <tr>
-                <th>Edited<br>Starting<br>Odometer</th>
-                <th>Edited<br>Ending<br>Odometer</th>
-                <th>Edited<br>Fuel<br>Added</th>
+                <th>Edited Starting Odometer</th>
+                <th>Edited Ending Odometer</th>
+                <th>Edited Fuel Added</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
                     <form action="/tripfuels/<%= trip._id %>?_method=PUT" method="POST">
-                        <input type="number" name="tripStart" value="<%= trip.tripStart %>">
+                        <input type="number" name="tripStart" value="<%= trip.tripStart %>" style="text-align: center;">
                         <br>
                 <td>
-                    <input type="number" name="tripEnd" value="<%= trip.tripEnd %>">
+                    <input type="number" name="tripEnd" value="<%= trip.tripEnd %>" style="text-align: center;">
                 </td>
-                <br>
+
                 <td>
-                    <input type="number" name="fuelInfo" value="<%= trip.fuelInfo %>">
+                    <input type="number" name="fuelInfo" value="<%= trip.fuelInfo %>" style="text-align: center;">
                 </td>
                 <br>
             <tr>
+                <td></td>
                 <td>
-                    <button type="submit">Edit Trip Info</button>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 2rem;">Edit Trip Info</button>
                 </td>
             </tr>
             </form>
