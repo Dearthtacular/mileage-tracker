@@ -33,7 +33,7 @@ async function show(req, res) {
             const startTf = vehicleFromTheDatabase.tripfuel[0].tripStart
             const endTf = vehicleFromTheDatabase.tripfuel[tfArrLength - 1].tripEnd
             const totalMiles = endTf - startTf
-            avgMpg = totalMiles / totalFuel
+            avgMpg = Number((totalMiles / totalFuel).toFixed(2));
         }
 
         res.render("vehicles/show", {

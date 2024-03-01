@@ -1,35 +1,59 @@
-# passport-boilerplate
+# [Mileage Tracker](https://github.com/Dearthtacular/mileage-tracker)
 
+Mileage tracker is a simple yet effective full stack web application usable in modern browsers and was created using MongoDB, Mongoose, Express.js, Node.js, and OAuth 2.0 for functionality and bootstrap for portions of element styling.
 
-This is your passport boilerplate.
+## Concept
 
-## Setup 
+Mileage Tracker provides a clean and simple interface for users who wish to manually track fuel economy for any vehicle they choose.  Upon logging in, users may select a vehicle from a collection, and then input trip data including:
 
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+- Starting odometer reading
+- Ending odometer reading
+- Fuel pumped into the vehicle (in gallons)
 
+Using this information, the application performs its primary task of calculating a running average miles per gallon calculation.
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin main`
+Further, users are able to remove a vehicle from their personal collection as well as modify mileage and fuel information per vehicle at any time.
 
-#### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
+>__Note__: Users must be logged in to use all features of the application.
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
+## Instructions
 
-#### Make a commit 
+The user logs in:
 
-```git commit -m "setup up oauth and User Model"```
+![image 1](_images/image1.png)
+
+Upon first logging in, the user must __create__ a vehicle:
+
+![image 2](_images/image2.png)
+
+After clicking "Add Vehicle" from the nav bar, the user is prompted to select a vehicle from the drop down:
+
+![image 3](_images/image3.png)
+
+>__Note__: The list of vehicles is far from exhaustive.  This is a known deficiency and ice box item.
+
+Upon selecting a vehicle, the user is redirected to the primary view for their created vehicle so they may begin tracking mileage and fuel data
+
+![image 4](_images/image4.png)
+
+After at least one start odometer entry, end odometer entry, and fuel log, they system will have enough information to begin providing MPG calculations for the vehicle.  Users may __update__ or __delete__ trip information entries.
+
+>__Note__: The user may include as much or as little data as they choose.  The calculation is only as accurate as the data provided to the application.
+
+![image 5](_images/image5.png)
+
+At this stage, users may add as many vehicles as they choose for MPG calculations.
+
+![image 6](_images/image6.png)
+
+## Icebox Items
+
+1. Granular MPG calculations such as per fill up and by specified date ranges
+
+2. To input fuel costs so I can see average fuel cost per mile in addition to vehicle MPG
+
+3. Enter the VIN (or scan the VIN barcode on the door) of a vehicle and have all of the vehicle data populate automatically
+
+## Credits
+
+"Sign in with Google button" button provided by [Mirko Akov](https://codepen.io/mupkoo/pen/YgddgB)
