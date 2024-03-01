@@ -48,11 +48,13 @@ At this stage, users may add as many vehicles as they choose for MPG calculation
 
 ## Icebox Items
 
-1. Granular MPG calculations such as per fill up and by specified date ranges
+1. Tap into an exhaustive list of automobile assets for user selection
 
-2. To input fuel costs so I can see average fuel cost per mile in addition to vehicle MPG
+2. Granular MPG calculations such as per fill up and by specified date ranges
 
-3. Enter the VIN (or scan the VIN barcode on the door) of a vehicle and have all of the vehicle data populate automatically
+3. To input fuel costs so I can see average fuel cost per mile in addition to vehicle MPG
+
+4. Enter the VIN (or scan the VIN barcode on the door) of a vehicle and have all of the vehicle data populate automatically
 
 ## Credits
 
