@@ -1,6 +1,6 @@
 # [Mileage Tracker](https://shy-pink-dhole-wig.cyclic.app)
 
-Mileage tracker is a simple yet effective full stack web application usable in modern browsers and was created using MongoDB, Mongoose, Express.js, Node.js, and OAuth 2.0 for functionality and bootstrap for portions of element styling.
+Mileage tracker is a simple yet effective full stack web application usable in modern browsers and was created using MongoDB, Mongoose, Express.js, Node.js, and OAuth 2.0 for functionality and Bootstrap for portions of element styling.
 
 ## Concept
 
